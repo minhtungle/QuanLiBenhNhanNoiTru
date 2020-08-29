@@ -24,7 +24,7 @@ namespace QuanLiBenhNhanNoiTru.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult _Edit(int id)
         {
             var user = new TaiKhoanDao().ViewDetail(id);
             return View(user);
