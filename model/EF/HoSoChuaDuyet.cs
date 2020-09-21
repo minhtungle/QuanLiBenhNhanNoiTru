@@ -6,15 +6,14 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("BenhNhan")]
-    public partial class BenhNhan
+    [Table("HoSoChuaDuyet")]
+    public partial class HoSoChuaDuyet
     {
         public long ID { get; set; }
 
         [StringLength(50)]
         public string MaBn { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string TenBN { get; set; }
 

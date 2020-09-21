@@ -61,6 +61,8 @@
     <Compile Include="Dao\BenhNhanDao.cs" />
     <Compile Include="Dao\TaiKhoanDao.cs" />
     <Compile Include="EF\BenhNhan.cs" />
+    <Compile Include="EF\BenhNhanCu.cs" />
+    <Compile Include="EF\HoSoChuaDuyet.cs" />
     <Compile Include="EF\KhoaDieuTri.cs" />
     <Compile Include="EF\PhongBenh.cs" />
     <Compile Include="EF\QuanLiBenhNhanDbContext.cs" />

@@ -12,11 +12,13 @@ namespace Model.EF
         {
         }
 
-        public virtual DbSet<BenhNhan> BenhNhans { get; set; }
-        public virtual DbSet<KhoaDieuTri> KhoaDieuTris { get; set; }
-        public virtual DbSet<PhongBenh> PhongBenhs { get; set; }
-        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
-        public virtual DbSet<ToaNha> ToaNhas { get; set; }
+        public virtual DbSet<BenhNhan> BenhNhan { get; set; }
+        public virtual DbSet<BenhNhanCu> BenhNhanCu { get; set; }
+        public virtual DbSet<HoSoChuaDuyet> HoSoChuaDuyet { get; set; }
+        public virtual DbSet<KhoaDieuTri> KhoaDieuTri { get; set; }
+        public virtual DbSet<PhongBenh> PhongBenh { get; set; }
+        public virtual DbSet<TaiKhoan> TaiKhoan { get; set; }
+        public virtual DbSet<ToaNha> ToaNha { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
