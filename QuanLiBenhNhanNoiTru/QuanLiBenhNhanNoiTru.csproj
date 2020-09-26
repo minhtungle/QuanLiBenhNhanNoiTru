@@ -157,6 +157,7 @@
     <Content Include="assets\admin\js\demo\chart-bar-demo.js" />
     <Content Include="assets\admin\js\demo\chart-pie-demo.js" />
     <Content Include="assets\admin\js\demo\datatables-demo.js" />
+    <Content Include="assets\admin\js\employee\employee.js" />
     <Content Include="assets\admin\js\sb-admin-2.js" />
     <Content Include="assets\admin\js\sb-admin-2.min.js" />
     <Content Include="assets\admin\vendor\bootstrap\js\bootstrap.bundle.js" />
@@ -1935,9 +1936,10 @@
     <Content Include="Areas\Admin\Views\Login\_Login.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layouts.cshtml" />
     <Content Include="Areas\Admin\Views\Home\_Home.cshtml" />
-    <Content Include="Areas\Admin\Views\User\_Create.cshtml" />
-    <Content Include="Areas\Admin\Views\User\_Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HoSoChuaDuyet\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1969,7 +1971,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="Areas\Admin\Views\HoSoChuaDuyet\" />
     <Folder Include="assets\client\" />
     <Folder Include="Models\" />
   </ItemGroup>
@@ -2009,16 +2010,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>56661</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44343/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

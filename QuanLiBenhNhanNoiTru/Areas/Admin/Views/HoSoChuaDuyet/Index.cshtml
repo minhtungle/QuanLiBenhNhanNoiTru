@@ -1,0 +1,167 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+@section header
+{
+}
+<div class="container-fluid ">
+    <h2>Quản lí hồ sơ chưa duyệt</h2>
+    <hr />
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Thêm hồ sơ</button><br /><br />
+    <div class="row flex-row flex-nowrap">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Mã BN
+                    </th>
+                    <th>
+                        Tên BN
+                    </th>
+                    <th>
+                        Tuổi
+                    </th>
+                    @*<th>
+                            Ngày sinh
+                        </th>
+                        <th>
+                            Địa chỉ
+                        </th>
+                        <th>
+                            Ngày vào
+                        </th>
+
+                        <th>
+                            Dãy nhà
+                        </th>
+                        <th>
+                            Tên khoa
+                        </th>
+                        <th>
+                            Tên phòng
+                        </th>*@
+                    <th>
+                        Trạng Thái
+                    </th>
+                    <th>
+                        Bệnh án
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Thêm hồ sơ</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <form class=" row">
+                    <div class=" col-md-4 ">
+                        <div class="form-group">
+                            <label for="MaBN">Mã BN</label>
+                            <input type="text" class="form-control" id="MaBN" placeholder="Mã BN" />
+                        </div>
+                        <div class="form-group">
+                            <label for="TenBn">Tên BN</label>
+                            <input type="text" class="form-control" id="TenBN" placeholder="Họ và tên" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Tuoi">Tuổi</label>
+                            <input type="number" class="form-control" id="Tuoi" placeholder="Tuổi" />
+                        </div>
+                        <div class="form-group">
+                            <label for="NgaySinh">Ngày sinh</label>
+                            <input type="date" class="form-control" id="NgaySinh" />
+                        </div>
+                        <div class="form-group">
+                            <label for="NgayVao">Ngày vào</label>
+                            <input type="date" class="form-control" id="NgayVao" />
+                        </div>
+
+                    </div>
+                    <div class=" col-md-8">
+                        <div class="form-group">
+                            <label for="DiaChi">Địa chỉ</label>
+                            <input type="text" class="form-control" id="DiaChi" placeholder="Địa chỉ" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Vị trí">Vị trí</label>
+                            <div class="form-group">
+
+                                <div class="btn-group">
+                                    <button type="button"
+                                            class="btn btn-info dropdown-toggle"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            aria-expanded="false">
+                                        Tòa nhà
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Tòa nhà</a>
+                                    </div>
+                                </div>
+
+                                <div class="btn-group">
+                                    <button type="button"
+                                            class="btn btn-info dropdown-toggle"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            aria-expanded="false">
+                                        Khoa
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Khoa</a>
+                                    </div>
+                                </div>
+
+                                <div class="btn-group">
+                                    <button type="button"
+                                            class="btn btn-info dropdown-toggle"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            aria-expanded="false">
+                                        Phòng
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Phòng</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" form-group">
+                            <label for="TrangThai">Trạng thái</label>
+                            <label type="text" class="form-control bg-success text-white" id="TrangThai">Đang nằm</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="col">
+                                <label for="BenhAn">Bệnh án</label>
+                            </div>
+                            <div class="col">
+                                <input type="file" id="BenhAn" />
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Thêm</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Sửa</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Assets/admin/js/employee/employee.js"></script>

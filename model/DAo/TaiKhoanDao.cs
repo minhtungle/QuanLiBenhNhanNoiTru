@@ -51,12 +51,14 @@ namespace Model.Dao
             try
             {
                 var user = db.TaiKhoans.Find(entity.ID);
-                if (string.IsNullOrEmpty(entity.Password))
+                user.UserName = entity.UserName;
+                if (!string.IsNullOrEmpty(entity.Password))
                 {
                     user.Password = entity.Password;
+                    db.SaveChanges();
+                    return true;
                 }
-                db.SaveChanges();
-                return true;
+                return false;
             }
             catch (Exception)
             {

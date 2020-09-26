@@ -58,11 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dao\BenhNhanDao.cs" />
+    <Compile Include="Dao\HoSoChuaDuyetDao.cs" />
     <Compile Include="Dao\TaiKhoanDao.cs" />
-    <Compile Include="EF\BenhNhan.cs" />
-    <Compile Include="EF\BenhNhanCu.cs" />
     <Compile Include="EF\HoSoChuaDuyet.cs" />
+    <Compile Include="EF\HoSoCu.cs" />
+    <Compile Include="EF\HoSoMoi.cs" />
     <Compile Include="EF\KhoaDieuTri.cs" />
     <Compile Include="EF\PhongBenh.cs" />
     <Compile Include="EF\QuanLiBenhNhanDbContext.cs" />

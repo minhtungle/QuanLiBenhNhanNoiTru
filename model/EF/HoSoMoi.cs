@@ -6,16 +6,16 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("BenhNhanCu")]
-    public partial class BenhNhanCu
+    [Table("HoSoMoi")]
+    public partial class HoSoMoi
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long ID { get; set; }
 
         [StringLength(50)]
         public string MaBn { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [StringLength(25)]
         public string TenBN { get; set; }
 
         public int? Tuoi { get; set; }
@@ -23,27 +23,24 @@ namespace Model.EF
         [Column(TypeName = "date")]
         public DateTime? NgaySinh { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string DiaChi { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? NgayVao { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? NgayRa { get; set; }
-
-        [StringLength(50)]
+        [StringLength(5)]
         public string DayNha { get; set; }
 
-        [StringLength(50)]
+        [StringLength(25)]
         public string TenKhoa { get; set; }
 
-        [StringLength(50)]
+        [StringLength(25)]
         public string TenPhong { get; set; }
 
         public bool? Trangthai { get; set; }
 
-        [StringLength(250)]
+        [StringLength(100)]
         public string BenhAn { get; set; }
     }
 }

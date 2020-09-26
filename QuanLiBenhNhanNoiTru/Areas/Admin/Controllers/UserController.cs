@@ -19,12 +19,12 @@ namespace QuanLiBenhNhanNoiTru.Areas.Admin.Controllers
             return View(model);
         }
         [HttpGet]
-        public ActionResult _Create()
+        public ActionResult Create()
         {
             return View();
         }
-
-        public ActionResult _Edit(int id)
+        [HttpGet]
+        public ActionResult Edit(int id)
         {
             var user = new TaiKhoanDao().ViewDetail(id);
             return View(user);
