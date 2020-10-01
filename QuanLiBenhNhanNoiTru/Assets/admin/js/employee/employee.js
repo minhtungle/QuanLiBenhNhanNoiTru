@@ -1,8 +1,5 @@
 ﻿//Load Data in Table when documents is ready  
 
-$(window).on("load", function () {
-    console.log("window loaded");
-});
 //Load Data function  
 function loadData() {
     $.ajax({
@@ -14,12 +11,14 @@ function loadData() {
             var html = '';
             $.each(result, function (key, item) {
                 html += '<tr>';
-                html += '<td><a onclick="return getbyID(' + item.ID + ')">Sửa </a > | <a href="#" onclick="Delele(' + item.ID + ')">Xóa</a></td > ';
+                html += '<td><a href="#" onclick="return getbyID(' + item.ID + ')">Sửa </a > | <a href="#" onclick="Delele(' + item.ID + ')">Xóa</a></td > ';
+                html += '<td>' + item.ID + '</td>';
                 html += '<td>' + item.MaBN + '</td>';
                 html += '<td>' + item.TenBN + '</td>';
                 html += '<td>' + item.Tuoi + '</td>';
-                html += '<td><span class="label label-success">Đang nằm</span></td>';   
-                html += '<td>' + item.BenhAn + '</td>';   
+                html += '<td><span class="label label-success">Đang nằm</span></td>';
+                html += '<td>' + item.BenhAn + '</td>';
+                html += '</tr>';
             });
             $('.tbody').html(html);
         },
@@ -27,7 +26,7 @@ function loadData() {
             alert(errormessage.responseText);
         }
     });
-}
+};
 
 //Add Data Function   
 function Add() {
@@ -45,6 +44,7 @@ function Add() {
         //NgayRa: $('#NgayRa').val(),
         DayNha: $('#DayNha').val(),
         TenKhoa: $('#TenKhoa').val(),
+        TenPhong: $('#TenPhong').val(),
         TrangThai: true,
         BenhAn: $('#BenhAn').val()
     };
@@ -83,12 +83,13 @@ function getbyID(EmpID) {
         contentType: "application/json;charset=UTF-8",
         dataType: "json",
         success: function (result) {
+            $('#ID').val(result.ID);
             $('#MaBN').val(result.MaBN);
             $('#TenBN').val(result.TenBN);
             $('#Tuoi').val(result.Tuoi);
             $('#NgaySinh').val(result.NgaySinh);
             $('#DiaChi').val(result.DiaChi);
-            $('#NgayVao').val(result.NgayVao);
+            $('#NgayVao').val(Date.parse(result.NgayVao));
           
             $('#DayNha').val(result.DayNha);
             $('#TenKhoa').val(result.TenKhoa);
@@ -99,10 +100,10 @@ function getbyID(EmpID) {
             $('#btnAdd').hide();
         },
         error: function (errormessage) {
-            alert(errormessage.responseText);
+            alert("Lỗi");
         }
     });
-    return false;
+    //return false;
 }
 
 //function for updating employee's record  
@@ -111,7 +112,9 @@ function Update() {
     if (res == false) {
         return false;
     }
+    //thiếu ID
     var empObj = {
+        ID: $('#ID').val(),
         MaBN: $('#MaBN').val(),
         TenBN: $('#TenBN').val(),
         Tuoi: $('#Tuoi').val(),
@@ -133,20 +136,21 @@ function Update() {
         success: function (result) {
             loadData();
             $('#myModal').modal('hide');
-            $('#MaBN').val();
-            $('#TenBN').val();
-            $('#Tuoi').val();
-            $('#NgaySinh').val();
-            $('#DiaChi').val();
-            $('#NgayVao').val();
+            $('#ID').val("");
+            $('#MaBN').val("");
+            $('#TenBN').val("");
+            $('#Tuoi').val("");
+            $('#NgaySinh').val("");
+            $('#DiaChi').val("");
+            $('#NgayVao').val("");
             
-            $('#DayNha').val();
-            $('#TenKhoa').val();
-            $('#TenPhong').val();
-            $('#BenhAn').val();
+            $('#DayNha').val("");
+            $('#TenKhoa').val("");
+            $('#TenPhong').val("");
+            $('#BenhAn').val("");
         },
         error: function (errormessage) {
-            alert(errormessage.responseText);
+            alert("Lỗi ");
         }
     });
 }
@@ -177,8 +181,7 @@ function clearTextBox() {
     $('#Tuoi').val();
     $('#NgaySinh').val();
     $('#DiaChi').val();
-    $('#NgayVao').val();
-    $('#NgayRa').val();
+    $('#NgayVao').val()
     $('#DayNha').val();
     $('#TenKhoa').val();
     $('#TenPhong').val();
@@ -186,18 +189,15 @@ function clearTextBox() {
     $('#btnUpdate').hide();
     $('#btnAdd').show();
 
-    $('#ID').css('border-color', 'lightgrey');
     $('#MaBN').css('border-color', 'lightgrey');
     $('#TenBN').css('border-color', 'lightgrey');
     $('#Tuoi').css('border-color', 'lightgrey');
     $('#NgaySinh').css('border-color', 'lightgrey');
     $('#DiaChi').css('border-color', 'lightgrey');
-    $('#NgayVao').css('border-color', 'lightgrey');
     $('#NgayRa').css('border-color', 'lightgrey');
     $('#DayNha').css('border-color', 'lightgrey');
     $('#TenKhoa').css('border-color', 'lightgrey');
     $('#TenPhong').css('border-color', 'lightgrey');
-    $('#TrangThai').css('border-color', 'lightgrey');
 }
 //Valdidation using jquery  
 function validate() {
@@ -290,7 +290,7 @@ function validate() {
     //    $('#TenPhong').css('border-color', 'lightgrey');
     //}
     //
-    if ($('#BenhAn').val().trim() == "") {
+    if ($('#BenhAn').val().trim() == "") {    
         $('#BenhAn').css('border-color', 'Red');
         isValid = false;
     }

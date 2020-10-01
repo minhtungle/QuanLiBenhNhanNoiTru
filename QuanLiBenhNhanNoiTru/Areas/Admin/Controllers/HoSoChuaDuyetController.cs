@@ -25,9 +25,9 @@ namespace QuanLiBenhNhanNoiTru.Areas.Admin.Controllers
         {
             return Json(dao.Them(entity), JsonRequestBehavior.AllowGet);
         }
-        public JsonResult GetByID(int ID)
+        public JsonResult GetByID(int id)
         {
-            var Employee = dao.GetByID(ID);
+            var Employee = dao.GetByID(id);
             return Json(Employee, JsonRequestBehavior.AllowGet);
         }
         public JsonResult Update(HoSoChuaDuyet entity)

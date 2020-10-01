@@ -40,7 +40,7 @@ namespace Model.EF
         [StringLength(25)]
         public string TenPhong { get; set; }
 
-        public bool? Trangthai { get; set; }
+        public bool Trangthai { get; set; }
 
         [StringLength(100)]
         public string BenhAn { get; set; }

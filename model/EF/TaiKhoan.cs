@@ -11,13 +11,13 @@ namespace Model.EF
     {
         public long ID { get; set; }
 
-        [StringLength(50)]
+        [StringLength(25)]
         public string UserName { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string Password { get; set; }
 
-        [StringLength(50)]
+        [StringLength(25)]
         public string HoTen { get; set; }
 
         public bool TrangThai { get; set; }

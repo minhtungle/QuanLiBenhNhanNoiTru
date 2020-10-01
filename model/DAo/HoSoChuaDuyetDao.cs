@@ -27,10 +27,10 @@ namespace Model.Dao
         {
             try
             {
-                var user = db.HoSoChuaDuyets.Find(entity.MaBn);
+                var user = db.HoSoChuaDuyets.Find(entity.ID);
                 user.MaBn = entity.MaBn;
                 user.TenBN = entity.TenBN;
-                //user.Tuoi = entity.Tuoi;
+                user.Tuoi = entity.Tuoi;
                 user.NgaySinh = entity.NgaySinh;
                 user.DiaChi = entity.DiaChi;
                 user.NgayVao = entity.NgayVao;
@@ -38,6 +38,7 @@ namespace Model.Dao
                 user.DayNha = entity.DayNha;
                 user.TenKhoa = entity.TenKhoa;
                 user.TenPhong = entity.TenPhong;
+                user.Trangthai = true;
                 user.BenhAn = entity.BenhAn;
                 db.SaveChanges();
                 return true;

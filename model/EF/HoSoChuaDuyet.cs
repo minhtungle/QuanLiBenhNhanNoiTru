@@ -9,7 +9,6 @@ namespace Model.EF
     [Table("HoSoChuaDuyet")]
     public partial class HoSoChuaDuyet
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long ID { get; set; }
 
         [StringLength(50)]

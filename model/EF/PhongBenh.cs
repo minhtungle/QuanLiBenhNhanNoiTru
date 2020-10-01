@@ -11,13 +11,13 @@ namespace Model.EF
     {
         public long ID { get; set; }
 
-        [StringLength(50)]
+        [StringLength(25)]
         public string TenPhong { get; set; }
 
-        [StringLength(50)]
+        [StringLength(25)]
         public string TenKhoa { get; set; }
 
-        [StringLength(50)]
+        [StringLength(5)]
         public string DayNha { get; set; }
     }
 }
