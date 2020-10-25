@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dao\HoSoChuaDuyetDao.cs" />
+    <Compile Include="Dao\HoSoMoiDao.cs" />
     <Compile Include="Dao\TaiKhoanDao.cs" />
     <Compile Include="EF\HoSoChuaDuyet.cs" />
     <Compile Include="EF\HoSoCu.cs" />
@@ -77,5 +78,6 @@
   <ItemGroup>
     <Content Include="Content\PagedList.css" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

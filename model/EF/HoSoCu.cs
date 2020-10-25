@@ -11,22 +11,23 @@ namespace Model.EF
     {
         public long ID { get; set; }
 
+        [Required]
         [StringLength(50)]
-        public string MaBn { get; set; }
+        public string MaBN { get; set; }
 
         [StringLength(25)]
         public string TenBN { get; set; }
 
         public int? Tuoi { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? NgaySinh { get; set; }
+        [StringLength(10)]
+        public string NgaySinh { get; set; }
 
         [StringLength(100)]
         public string DiaChi { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? NgayVao { get; set; }
+        [StringLength(10)]
+        public string NgayVao { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? NgayRa { get; set; }
@@ -40,7 +41,7 @@ namespace Model.EF
         [StringLength(25)]
         public string TenPhong { get; set; }
 
-        public bool Trangthai { get; set; }
+        public bool? Trangthai { get; set; }
 
         [StringLength(100)]
         public string BenhAn { get; set; }

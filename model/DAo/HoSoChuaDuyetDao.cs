@@ -17,24 +17,32 @@ namespace Model.Dao
         }
 
         #region CRUD
-        public long Them(HoSoChuaDuyet entity)
+        public bool Them(HoSoChuaDuyet entity)
         {
-            db.HoSoChuaDuyets.Add(entity);
-            db.SaveChanges();
-            return entity.ID;
+            try
+            {
+                db.HoSoChuaDuyets.Add(entity);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
         }
         public bool CapNhat(HoSoChuaDuyet entity)
         {
             try
             {
                 var user = db.HoSoChuaDuyets.Find(entity.ID);
-                user.MaBn = entity.MaBn;
+                user.MaBN = entity.MaBN;
                 user.TenBN = entity.TenBN;
                 user.Tuoi = entity.Tuoi;
                 user.NgaySinh = entity.NgaySinh;
                 user.DiaChi = entity.DiaChi;
                 user.NgayVao = entity.NgayVao;
-              
+
                 user.DayNha = entity.DayNha;
                 user.TenKhoa = entity.TenKhoa;
                 user.TenPhong = entity.TenPhong;
@@ -70,10 +78,20 @@ namespace Model.Dao
             var hs = db.HoSoChuaDuyets.Find(id);
             return hs;
         }
-        public IEnumerable<HoSoChuaDuyet> ListAllPaging( int page, int pageSize)
+        public List<string> GetKhoa(string daynha)
         {
-            IQueryable<HoSoChuaDuyet> model = db.HoSoChuaDuyets;         
-            return model.OrderByDescending(x => x.ID).ToPagedList(page, pageSize);
+            var khoa = db.KhoaDieuTris.Where(x => x.DayNha == daynha).Select(x => x.TenKhoa).ToList();
+            return khoa;
+        }
+        public List<string> GetPhong(string tenkhoa)
+        {
+            var phong = db.PhongBenhs.Where(x => x.TenKhoa == tenkhoa).Select(x => x.TenPhong).ToList();
+            return phong;
+        }
+        public IEnumerable<HoSoChuaDuyet> ListHoSoChuaDuyet()
+        {
+            IQueryable<HoSoChuaDuyet> hosochuaduyet = db.HoSoChuaDuyets;
+            return hosochuaduyet.OrderBy(x => x.ID).ToList();
         }
 
         #endregion

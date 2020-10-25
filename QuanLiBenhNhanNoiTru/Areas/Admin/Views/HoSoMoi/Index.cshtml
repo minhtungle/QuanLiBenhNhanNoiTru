@@ -1,22 +1,32 @@
-﻿@*@model PagedList.IPagedList<Model.EF.HoSoChuaDuyet>
-    @using PagedList.Mvc;*@
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
 }
+
 @section header
 {
 }
 <div class="container-fluid ">
-    <h2>Quản lí hồ sơ chưa duyệt</h2>
+    <h2>Quản lí duyệt hồ sơ</h2>
     <hr />
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox()">Thêm hồ sơ</button><br /><br />
+    <button type="button"
+            class="btn btn-success"
+            data-toggle="modal"
+            data-target="#myModal"
+            id="btn_Duyet"
+            onclick="
+    return Add();">
+        Duyệt hồ sơ
+    </button>
+    <br />
+    <br />
     <div class="row flex-row flex-nowrap">
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
                     <th>
-                        #
+                        Chọn
                     </th>
                     <th hidden>
                         ID
@@ -62,13 +72,11 @@
         </table>
     </div>
 </div>
-
-
-<div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width: 100%;">
+<div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Thêm hồ sơ</h4>
+                <h4 class="modal-title" id="myModalLabel">Xem hồ sơ</h4>
                 <button type="button" class="close" data-dismiss="modal">×</button>
             </div>
             <div class="modal-body">
@@ -80,79 +88,66 @@
                         </div>
                         <div class="form-group">
                             <label for="MaBN">Mã BN</label>
-                            <input type="text" class="form-control" id="MaBN" placeholder="Mã BN" />
+                            <input type="text" class="form-control" id="MaBN" placeholder="Mã BN" disabled="disabled" />
                         </div>
                         <div class="form-group">
                             <label for="TenBn">Tên BN</label>
-                            <input type="text" class="form-control" id="TenBN" placeholder="Họ và tên" />
+                            <input type="text" class="form-control" id="TenBN" placeholder="Họ và tên" disabled="disabled" />
                         </div>
                         <div class="form-group">
                             <label for="Tuoi">Tuổi</label>
-                            <input type="number" class="form-control" id="Tuoi" placeholder="Tuổi" />
-                        </div>
-                        <div class="form-group">
-                            <label for="DiaChi">Địa chỉ</label>
-                            <input type="text" class="form-control" id="DiaChi" placeholder="Địa chỉ" />
+                            <input type="number" class="form-control" id="Tuoi" placeholder="Tuổi" disabled="disabled" />
                         </div>
                         <div class="form-group">
                             <label for="NgaySinh">Ngày sinh</label>
-                            <input type="date" class="form-control" id="NgaySinh" placeholder="dd-mm-yyyy"
-                                   min="1970-01-01" max="2020-01-01" />
+                            <input type="date" class="form-control" id="NgaySinh" disabled="disabled" />
                         </div>
                         <div class="form-group">
                             <label for="NgayVao">Ngày vào</label>
-                            <input type="date" class="form-control" id="NgayVao" placeholder="dd-mm-yyyy"
-                                   min="2000-01-01" max="2020-01-01" />
+                            <input type="date" class="form-control" id="NgayVao" disabled="disabled" />
                         </div>
-
                     </div>
                     <div class=" col-md-8">
-                        <div class=" form-group">
-                            <label for="TrangThai">Trạng thái</label>
-                            <label type="text" class="form-control bg-success text-white" id="TrangThai">Đang nằm</label>
-                        </div>                      
+                        <div class="form-group">
+                            <label for="DiaChi">Địa chỉ</label>
+                            <input type="text" class="form-control" id="DiaChi" placeholder="Địa chỉ" disabled="disabled" />
+                        </div>
+
                         <div class="form-group">
                             <label for="Vị trí">Vị trí</label>
                             <div class="form-group">
 
                                 <div class="btn-group">
-                                    <select class="browser-default custom-select" id="DayNha" data-toggle="tooltip" data-placement="top" title="Tòa nhà">
-                                        <option selected="" disabled selected>Chọn tòa nhà</option>
-                                        <option value="1">A</option>
-                                        <option value="2">B</option>
-                                        <option value="3">C</option>
-                                    </select>
+                                    <input type="text" class="form-control" id="DayNha" disabled="disabled" />
                                 </div>
                                 <p></p>
                                 <div class="btn-group">
-                                    <select class="browser-default custom-select" id="TenKhoa" data-toggle="tooltip" data-placement="top" title="Tên khoa">
-                                        <option selected="" disabled selected>Chọn khoa nằm</option>
-                                    </select>
+                                    <input type="text" class="form-control" id="TenKhoa" disabled="disabled" />
                                 </div>
                                 <p></p>
                                 <div class="btn-group">
-                                    <select class="browser-default custom-select" id="TenPhong" data-toggle="tooltip" data-placement="top" title="Tên phòng">
-                                        <option selected="" disabled selected>Chọn phòng nằm</option>
-                                    </select>
+                                    <input type="text" class="form-control" id="TenPhong" disabled="disabled" />
                                 </div>
+
                             </div>
                         </div>
+                        <div class=" form-group">
+                            <label for="TrangThai">Trạng thái</label>
+                            <label type="text" class="form-control bg-success text-white" id="TrangThai">Đang nằm</label>
+                        </div>
                         <div class="form-group">
-
-                            <label for="BenhAn">Bệnh án</label>
-
                             <div class="col">
-                                <input type="file" accept="image/*" id="BenhAn" name="BenhAn" onchange="loadFile(event)">
-                                <p id="message-input"></p>
-                                <img id="output" class="w-100" />
+                                <label for="BenhAn">Bệnh án</label>
                             </div>
+                            <div class="col">        
+                                <img id="BenhAn" class="w-100" />
+                            </div>
+                            
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Thêm</button>
-                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Sửa</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
             </div>
         </div>
@@ -160,18 +155,9 @@
     @*@Html.PagedListPager(Model, page => Url.Action("List", new { page, @searchString = @ViewBag.SearchString }))*@
 </div>
 <script src="~/assets/admin/vendor/jquery/jquery.min.js"></script>
-<script src="~/assets/admin/js/HoSoChuaDuyet/HoSoChuaDuyet.js"></script>
+<script src="~/assets/admin/js/HoSoMoi/HoSoMoi.js"></script>
 <script>
     $(document).ready(function () {
-        loadData();
-        $('[data-toggle="tooltip"]').tooltip();
+        loadData_From_HSM();
     });
-    //Load ảnh demo
-    var loadFile = function (event) {
-        var output = document.getElementById('output');
-        output.src = URL.createObjectURL(event.target.files[0]);
-        output.onload = function () {
-            URL.revokeObjectURL(output.src) // free memory
-        }
-    };
 </script>

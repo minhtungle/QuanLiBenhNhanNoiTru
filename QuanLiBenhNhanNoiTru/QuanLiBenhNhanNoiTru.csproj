@@ -135,8 +135,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BenhNhanMoiController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\HoSoChuaDuyetController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HoSoMoiController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
@@ -152,12 +154,14 @@
   <ItemGroup>
     <Content Include="assets\admin\css\sb-admin-2.css" />
     <Content Include="assets\admin\css\sb-admin-2.min.css" />
+    <Content Include="assets\admin\css\style.css" />
     <Content Include="assets\admin\img\tcbc-hinh-2-final-1596303229623185085831-crop-159630379639123983975.png" />
     <Content Include="assets\admin\js\demo\chart-area-demo.js" />
     <Content Include="assets\admin\js\demo\chart-bar-demo.js" />
     <Content Include="assets\admin\js\demo\chart-pie-demo.js" />
     <Content Include="assets\admin\js\demo\datatables-demo.js" />
-    <Content Include="assets\admin\js\employee\employee.js" />
+    <Content Include="assets\admin\js\HoSoChuaDuyet\HoSoChuaDuyet.js" />
+    <Content Include="assets\admin\js\HoSoMoi\HoSoMoi.js" />
     <Content Include="assets\admin\js\sb-admin-2.js" />
     <Content Include="assets\admin\js\sb-admin-2.min.js" />
     <Content Include="assets\admin\vendor\bootstrap\js\bootstrap.bundle.js" />
@@ -1940,6 +1944,8 @@
     <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Admin\Views\HoSoChuaDuyet\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HoSoMoi\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BenhNhanMoi\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1971,7 +1977,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\DuyetHoSo\" />
     <Folder Include="assets\client\" />
+    <Folder Include="assets\Uploads\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
